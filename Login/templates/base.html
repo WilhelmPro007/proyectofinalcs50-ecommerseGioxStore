@@ -1,0 +1,50 @@
+
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+    <title>{% block title %}{% endblock %}</title>
+
+    {% block css%}
+    <!-- CSS UNICO POR PAGINA!-->
+    {% endblock %}
+    
+  </head>
+  <body>
+    
+    <!-- SECTION Header -->
+    <section id="header">
+        <a href="{% url 'home' %}"><img src="{% static '/static/img/logoG.png' %}" class="logo" alt=""></a>   
+
+        <div>
+            <ul id="navbar">
+                <li><a class="active" href="{% url 'home' %}">Inicio</a></li>
+                <li><a href="#hero2">Nosotros</a></li>
+                <li><a href="{% url 'listar_productos' %}">Comprar</a></li>
+                <li><a href="#contacto1">Contacto</a></li>
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                {% else %}
+                    <li><a href="{% url 'register' %}">Registrate</a></li>
+                    <li><a href="{% url 'login' %}">Login</a></li>
+                {% endif %}
+                <li><a href="cart.html"><i class="fa-solid fa-bag-shopping"></i></a></li>
+            </ul>
+        </div>
+
+    </section>
+
+    {% block content %}
+    <!-- contenido de la pagina -->
+    {% endblock %}
+
+    {% block js %}
+    <!-- JS UNICO POR PAGINA!-->
+    {% endblock %}
+
+  </body>
+</html>
