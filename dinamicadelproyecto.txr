@@ -1,0 +1,16 @@
+####    XD
+En este documento pretendo documentar con la dinamica en que se 
+trabaja una bitacora, la dinamica backend que tendra la aplicacion.
+
+contemplamos la idea de usar localstorage de javascript para
+guardar en un diccionario la lista de articulos deseados
+por el usuario(Carrito)
+
+se enviara el diccionario del carrito usando la api fetch
+
+quizas sea buena idea usar ese metodo para almacenar la
+consulta de los articulos del catalogo.
+
+decido utilizar como framework web Django por sus herramientas
+integradas que nos facilitara el desarrollo
+

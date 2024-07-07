@@ -1,0 +1,51 @@
+la secuencia para este proyecto
+primero debemos de ver la logica
+
+-el usuario entra a la pagina de inicio de la aplicacion
+-desliza hasta abajo para cliclear el catalogo o 
+ puede ir directamente al mismo desde un hipervinculo en el navbar.
+-busca un articulo de su interes
+-clickea añadir a carrito
+    si tiene una cuenta, 
+        añade el articulo a el carrito del usuario
+    si no
+        lo redirecciona a crear una cuenta y luego añade el articulo a un carrito del usuario
+
+Cliente                    Sistema
+  |                          |
+  |------------------------->|
+  | Agregar Producto         | 
+  |                          |
+  |-- consultar producto --> | (Producto.id)
+  |<-- producto encontrado --| (Producto.nombre, Producto.precio, Producto.stock)
+  |                          |
+  |-- actualizar carrito --> | (ArticuloCarrito.carritoId, ArticuloCarrito.productoId, ArticuloCarrito.cantidad)
+  |<-- producto agregado ----|
+  |                          |
+  |                          |
+  |------------------------->|
+  | Revisar Carrito          |
+  |                          |
+  |-- consultar carrito ---->| (Cart.id)
+  |                          |
+  |<-- carrito revisado -----| (Articulos en carrito)
+  |                          |
+  |                          |
+  |------------------------->|
+  | Realizar Compra          |
+  |                          |
+  |-- verificar stock ------>| (Producto.id, ArticuloCarrito.cantidad)
+  |<-- stock verificado -----|
+  |                          |
+  |-- actualizar stock ----->| (Producto.id, nueva cantidadStock)
+  |<-- stock actualizado ----|
+  |                          |
+  |------------------------->|
+  | Facturar Carrito         |
+  |                          |
+  |-- crear factura -------->| (Facturado.carritoId, Facturado.fechaFacturacion, Facturado.total)
+  |<-- factura creada -------|
+  |                          |
+
+
+tomar en cuenta que para facturar lo reenvia a un formulario para realizar el pago.
